@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СнежныйПрокат | Аренда лыж, сноубордов и экипировки</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <!-- ШАПКА -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-snowflake"></i>
+                Снежный<span>Прокат</span>
+            </a>
+            <nav class="nav">
+                <a href="#catalog">Снаряжение</a>
+                <a href="#prices">Цены</a>
+                <a href="#locations">Пункты проката</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline" onclick="openModal('loginModal')">
+                    <i class="fas fa-user"></i> Войти
+                </button>
+                <button class="btn btn-primary" onclick="openCatalogBooking()">
+                    <i class="fas fa-calendar-check"></i> Забронировать
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Пробуйте разное —<br>
+                    берите напрокат
+                </h1>
+                <p class="hero-subtitle">
+                    5000+ единиц спортивного снаряжения и экипировки.<br>
+                    Самый большой ассортимент в Уфе
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-large" onclick="openCatalogBooking()">
+                        Забронировать онлайн
+                    </button>
+                    <button class="btn btn-outline btn-large" onclick="document.getElementById('catalog').scrollIntoView({behavior: 'smooth'})">
+                        Смотреть каталог
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">5000+</span>
+                        <span class="stat-label">единиц снаряжения</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">брендов топ-уровня</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">пункта проката</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-slider">
+                    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=600&h=400&fit=crop');"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1558431382-27e303142255?w=600&h=400&fit=crop');"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1518091043644-c1c445b2f33e?w=600&h=400&fit=crop');"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- КАТАЛОГ СНАРЯЖЕНИЯ (РАСШИРЕННЫЙ) -->
+    <section id="catalog" class="catalog-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Снаряжение <span class="accent">на любой вкус</span></h2>
+                <p class="section-subtitle">Выберите из 5000+ единиц современного инвентаря</p>
+                <div class="catalog-filters">
+                    <button class="filter-btn active" data-category="all">Все</button>
+                    <button class="filter-btn" data-category="snowboard">Сноуборды</button>
+                    <button class="filter-btn" data-category="ski">Горные лыжи</button>
+                    <button class="filter-btn" data-category="boots">Ботинки</button>
+                    <button class="filter-btn" data-category="clothing">Одежда</button>
+                    <button class="filter-btn" data-category="protection">Защита</button>
+                    <button class="filter-btn" data-category="xc-ski">Беговые лыжи</button>
+                </div>
+            </div>
+            <div class="catalog-grid" id="catalogGrid">
+                <!-- Сноуборды -->
+                <div class="product-card" data-category="snowboard">
+                    <div class="product-image" style="background-image: url('https://www.kant.ru/upload/iblock/7ce/7cee8dd9f3d7016ed0e584d94fd847c4.jpg');"></div>
+                    <div class="product-badge">Хит</div>
+                    <div class="product-info">
+                        <h3 class="product-title">Burton Custom X</h3>
+                        <p class="product-category">Сноуборд / взрослый / 158cm</p>
+                        <div class="product-price">1 800 ₽ <span>/ сутки</span></div>
+                        <div class="product-price-hour">150 ₽ <span>/ час</span></div>
+                        <button class="btn btn-primary btn-sm" onclick="openBookingModal('Burton Custom X', 1800)">Забронировать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="snowboard">
+                    <div class="product-image" style="background-image: url('https://www.kant.ru/upload/iblock/0df/0dfae1e773e985736757c1024b75ceab.jpg');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Jones Mountain Twin</h3>
+                        <p class="product-category">Сноуборд / унисекс / 156cm</p>
+                        <div class="product-price">2 200 ₽ <span>/ сутки</span></div>
+                        <div class="product-price-hour">180 ₽ <span>/ час</span></div>
+                        <button class="btn btn-primary btn-sm" onclick="openBookingModal('Jones Mountain Twin', 2200)">Забронировать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="snowboard">
+                    <div class="product-image" style="background-image: url('https://www.kant.ru/upload/iblock/ec8/ec80e1e56554c98b0bc7329c6eef2b2d.jpg');"></div>
+                    <div class="product-badge">Новинка</div>
+                    <div class="product-info">
+                        <h3 class="product-title">Lib Tech Orca</h3>
+                        <p class="product-category">Сноуборд / взрослый / 153cm</p>
+                        <div class="product-price">2 500 ₽ <span>/ сутки</span></div>
+                        <div class="product-price-hour">200 ₽ <span>/ час</span></div>
+                        <button class="btn btn-primary btn-sm" onclick="openBookingModal('Lib Tech Orca', 2500)">Забронировать</button>
+                    </div>
+                </div>
+                <!-- Горные лыжи -->
+                <div class="product-card" data-category="ski">
+                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=300&h=200&fit=crop');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Rossignol Experience 80</h3>
+                        <p class="product-category">Горные лыжи / взрослый / 170cm</p>
+                        <div class="product-price">1 500 ₽ <span>/ сутки</span></div>
+                        <div class="product-price-hour">120 ₽ <span>/ час</span></div>
+                        <button class="btn btn-primary btn-sm" onclick="openBookingModal('Rossignol Experience 80', 1500)">Забронировать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="ski">
+                    <div class="product-image" style="background-image: url('https://www.kant.ru/upload/resize_cache/iblock/2bf/1500_2000_1/2bf57acc670e5dea7b02e5447047c996.jpg');"></div>
+                    <div class="product-badge">Топ продаж</div>
+                    <div class="product-info">
+                        <h3 class="product-title">Salomon QST 98</h3>
+                        <p class="product-category">Горные лыжи / взрослый / 174cm</p>
+                        <div class="product-price">1 900 ₽ <span>/ сутки</span></div>
+                        <div class="product-price-hour">160 ₽ <span>/ час</span></div>
+                        <button class="btn btn-primary btn-sm" onclick="openBookingModal('Salomon QST 98', 1900)">Забронировать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="ski">
+                    <div class="product-image" style="background-image: url('https://avatars.mds.yandex.net/get-mpic/15290155/2a00000199b6c764d14adfb0e96685b5b2b5/orig');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Atomic Redster S7</h3>
+                        <p class="product-category">Горные лыжи / детский / 130cm</p>
+                        <div class="product-price">900 ₽ <span>/ сутки</span></div>
+                        <div class="product-price-hour">70 ₽ <span>/ час</span></div>
+                        <button class="btn btn-primary btn-sm" onclick="openBookingModal('Atomic Redster S7', 900)">Забронировать</button>
+                    </div>
+                </div>
+                <!-- Ботинки -->
+                <div class="product-card" data-category="boots">
+                    <div class="product-image" style="background-image: url('https://i.ytimg.com/vi/ImHPXDeYZ7I/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGFYgYChlMA8=&amp;rs=AOn4CLA1WbdP6K9OdCDeLrVicCbWB4FQUA');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Salomon S/Pro HV</h3>
+                        <p class="product-category">Горнолыжные ботинки / 26.5-30.5</p>
+                        <div class="product-price">650 ₽ <span>/ сутки</span></div>
+                        <div class="product-price-hour">55 ₽ <span>/ час</span></div>
+                        <button class="btn btn-primary btn-sm" onclick="openBookingModal('Salomon S/Pro HV', 650)">Забронировать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="boots">
+                    <div class="product-image" style="background-image: url('https://main-cdn.sbermegamarket.ru/big2/hlr-system/951/357/955/112/444/8/100061804099b7.jpg');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Burton Ruler</h3>
+                        <p class="product-category">Ботинки для сноуборда / 39-46</p>
+                        <div class="product-price">800 ₽ <span>/ сутки</span></div>
+                        <div class="product-price-hour">70 ₽ <span>/ час</span></div>
+                        <button class="btn btn-primary btn-sm" onclick="openBookingModal('Burton Ruler', 800)">Забронировать</button>
+                    </div>
+                </div>
+                <!-- Одежда -->
+                <div class="product-card" data-category="clothing">
+                    <div class="product-image" style="background-image: url('https://avatars.mds.yandex.net/get-mpic/16154795/2a0000019a1b119a295e7654bf0c228b64c6/orig');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Комбинезон Burton AK</h3>
+                        <p class="product-category">Мембранный / S-XXL</p>
+                        <div class="product-price">1 200 ₽ <span>/ сутки</span></div>
+                        <div class="product-price-hour">100 ₽ <span>/ час</span></div>
+                        <button class="btn btn-primary btn-sm" onclick="openBookingModal('Комбинезон Burton AK', 1200)">Забронировать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="clothing">
+                    <div class="product-image" style="background-image: url('https://avatars.mds.yandex.net/get-mpic/4399709/2a00000191ead2061a55d2a2d1c50537bda0/orig');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Куртка The North Face</h3>
+                        <p class="product-category">Ветровка / S-XXL</p>
+                        <div class="product-price">500 ₽ <span>/ сутки</span></div>
+                        <div class="product-price-hour">45 ₽ <span>/ час</span></div>
+                        <button class="btn btn-primary btn-sm" onclick="openBookingModal('Куртка The North Face', 500)">Забронировать</button>
+                    </div>
+                </div>
+                <!-- Защита -->
+                <div class="product-card" data-category="protection">
+                    <div class="product-image" style="background-image: url('https://yandex-images.clstorage.net/la5i2R196/58123aJB55t/_n4BpfAQ4JiQcMV97walQtUPPRsjG8Wgm--Lt6o4-jdLQJe_B5uzxVjEhuOkTR_q0tQVBijQacv689Cli1TNKWz8k2AlAbVdxXTBLrmRoRAHnL1eoBwZ7NLi0PmgsWM9xQlRLJBPJhef1dX4uEmcskSAQVA-jz3P-q_YsIeCEWF4qtE7dldhVtl8wmJlhGUd340_VuedW-7YZtKz6HPhtk3B3SQXxWkSwl2Zt7LVXrcMwYIf-YsxTP2umHwOgF0n-SoTNfwRrJgcucEtb8ThXxjKOlZpFRXj0u9TOqd5r_eKjhZtUoinHIWQ1Po8FJn7i4PHE72C8gJ_q5BzxYNdI7EpU3B6HaXYGb3M62kFrZORx_PSYN8bp1sqEDMhs-hxRMpXKtcFplWIExB0dV2ecgTBjZgxDrsLdqGTdIDH2OK-pNrz8BNiHFQ3AiNsiyjXVs2zkOhQ1CGfZpl1Kv4hPYfPmmJSTOsZAhKYdDIS3voMgknYNUA9wzZonT2AQ11jsuEQ93Gbbp_d-A0s74QoW15B_lmuWVNnWKLS_O02Yj4JBNNp0QRjWklY1Twz2Rs9g0oB0fLMuwZ1IB--ysQdJPummHW9HOnYW34Hr-EJ7ROWS35Srh_QqNivkbct8WV4wcBTbZuDadKGGF2xNVgce4oIidD0w_tKNuEasIoHUKXwZRZ1uRHrk966DOPoha_YVQY9mCMQHOIU45k3YTTtP4IG0ubeDWeVh1LTsX9bUfVAiYvTNUf1CHKl0XUJi9uqPuDesrVX6RXWOQ-l5c_qnF5F-hmhGZ8rVqgWdOB57HyGARMmX0_mXczbHrFxEJK0gIrJkbnAtMjzJpk8QktTqrfi2ff7Ve1UVnmMpOHHKd0bBPPfL1hWYNknW_6tOeC-S8gS4t_Erx3O2dkzP1Qd9Y5CRRP2jPdE-aFRuclPX-G5KV__-NYl3J34wSpng6JT0EJ1GKTWECPTKVQ464');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Шлем Smith Vantage</h3>
+                        <p class="product-category">MIPS / S-XL</p>
+                        <div class="product-price">300 ₽ <span>/ сутки</span></div>
+                        <div class="product-price-hour">25 ₽ <span>/ час</span></div>
+                        <button class="btn btn-primary btn-sm" onclick="openBookingModal('Шлем Smith Vantage', 300)">Забронировать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="protection">
+                    <div class="product-image" style="background-image: url('https://ir.ozone.ru/s3/multimedia-1-o/7124440236.jpg');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Маска Oakley Flight Deck</h3>
+                        <p class="product-category">Prizm / универсальная</p>
+                        <div class="product-price">250 ₽ <span>/ сутки</span></div>
+                        <div class="product-price-hour">20 ₽ <span>/ час</span></div>
+                        <button class="btn btn-primary btn-sm" onclick="openBookingModal('Маска Oakley Flight Deck', 250)">Забронировать</button>
+                    </div>
+                </div>
+                <!-- Беговые лыжи -->
+                <div class="product-card" data-category="xc-ski">
+                    <div class="product-image" style="background-image: url('https://ir.ozone.ru/s3/multimedia-w/6288408956.jpg');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Fischer RCS Classic</h3>
+                        <p class="product-category">Беговые лыжи / 190cm</p>
+                        <div class="product-price">400 ₽ <span>/ сутки</span></div>
+                        <div class="product-price-hour">30 ₽ <span>/ час</span></div>
+                        <button class="btn btn-primary btn-sm" onclick="openBookingModal('Fischer RCS Classic', 400)">Забронировать</button>
+                    </div>
+                </div>
+                <div class="product-card" data-category="xc-ski">
+                    <div class="product-image" style="background-image: url('https://www.usports.ru/sites/usp/files/collections/0/732/c8eed246c1ea31452470d45abe8915b4.jpg');"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">Atomic Pro Skate</h3>
+                        <p class="product-category">Беговые лыжи / коньковый ход</p>
+                        <div class="product-price">450 ₽ <span>/ сутки</span></div>
+                        <div class="product-price-hour">35 ₽ <span>/ час</span></div>
+                        <button class="btn btn-primary btn-sm" onclick="openBookingModal('Atomic Pro Skate', 450)">Забронировать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРАЙС-ЛИСТ (ПОДРОБНЫЙ) -->
+    <section id="prices" class="prices">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Цены и <span class="accent">бронирование</span></h2>
+                <p class="section-subtitle">Прозрачные цены без скрытых комиссий. Система скидок для групп.</p>
+            </div>
+            <div class="price-grid">
+                <div class="price-card">
+                    <h3><i class="fas fa-snowboarding"></i> Сноуборд комплект</h3>
+                    <p>Сноуборд + ботинки + крепления</p>
+                    <div class="price-value">1 800 ₽ <span>/ сутки (будни)</span></div>
+                    <div class="price-value small">2 000 ₽ <span>/ сутки (выходные)</span></div>
+                    <div class="price-note">* Отдельно: сноуборд 1500₽, ботинки 1000₽</div>
+                </div>
+                <div class="price-card">
+                    <h3><i class="fas fa-skiing"></i> Горные лыжи</h3>
+                    <p>Лыжи + крепления (взрослые)</p>
+                    <div class="price-value">1 200 ₽ <span>/ сутки</span></div>
+                    <div class="price-value-hour">26 ₽ <span>/ час (мин. 750₽)</span></div>
+                </div>
+                <div class="price-card">
+                    <h3><i class="fas fa-child"></i> Детское снаряжение</h3>
+                    <p>Лыжи / сноуборд до 130 см</p>
+                    <div class="price-value">650 ₽ <span>/ сутки</span></div>
+                    <div class="price-value-hour">20 ₽ <span>/ час (мин. 650₽)</span></div>
+                </div>
+                <div class="price-card">
+                    <h3><i class="fas fa-tshirt"></i> Экипировка</h3>
+                    <p>Комбинезон / куртка / брюки</p>
+                    <div class="price-value">1 200 ₽ <span>/ сутки (комбез)</span></div>
+                    <div class="price-value small">500 ₽ <span>/ сутки (куртка/брюки)</span></div>
+                </div>
+                <div class="price-card">
+                    <h3><i class="fas fa-helmet-safety"></i> Защита</h3>
+                    <p>Шлем / маска / защита спины</p>
+                    <div class="price-value">300 ₽ <span>/ сутки (шлем)</span></div>
+                    <div class="price-value small">250 ₽ <span>/ сутки (маска)</span></div>
+                </div>
+                <div class="price-card discount-card">
+                    <h3><i class="fas fa-users"></i> Групповые скидки</h3>
+                    <div class="discount-item">-5% <span>при брони на 3+ человек</span></div>
+                    <div class="discount-item">-10% <span>при брони на 6+ человек</span></div>
+                    <div class="discount-item">-15% <span>при брони на 10+ человек</span></div>
+                </div>
+            </div>
+            <div class="price-note-bottom">
+                <p><i class="fas fa-id-card"></i> Залог: паспорт РФ или денежный залог (лыжи/сноуборд: 10 000₽, ботинки: 5 000₽, комбинезон: 10 000₽)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПУНКТЫ ПРОКАТА -->
+    <section id="locations" class="locations">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Пункты <span class="accent">проката</span></h2>
+                <p class="section-subtitle">Выбирайте удобное место получения снаряжения</p>
+            </div>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <div class="location-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>Комсомольская</h3>
+                    <p>ул. Комсомольская, 159/1 (цокольный этаж)</p>
+                    <span class="work-time"><i class="far fa-clock"></i> Круглосуточно</span>
+                    <span class="work-time"><i class="fas fa-phone"></i> +7 (347) 123-45-67</span>
+                </div>
+                <div class="location-card">
+                    <div class="location-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>Менделеева</h3>
+                    <p>ул. Менделеева, 217</p>
+                    <span class="work-time"><i class="far fa-clock"></i> Ежедневно 10:00–22:00</span>
+                    <span class="work-time"><i class="fas fa-phone"></i> +7 (347) 234-56-78</span>
+                </div>
+                <div class="location-card">
+                    <div class="location-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>ТЦ Аркада</h3>
+                    <p>ул. Минигали Губайдуллина, 6 (уровень -1)</p>
+                    <span class="work-time"><i class="far fa-clock"></i> Ежедневно 10:00–22:00</span>
+                    <span class="work-time"><i class="fas fa-phone"></i> +7 (347) 345-67-89</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- МОДАЛЬНОЕ ОКНО ВХОДА/РЕГИСТРАЦИИ -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <div class="modal-tabs">
+                <button class="tab-btn active" onclick="switchTab('login')">Вход</button>
+                <button class="tab-btn" onclick="switchTab('register')">Регистрация</button>
+            </div>
+            <div id="loginTab" class="tab-content active">
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label>Email или телефон</label>
+                        <input type="text" placeholder="example@mail.ru" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Войти</button>
+                    <p class="form-footer"><a href="#">Забыли пароль?</a></p>
+                </form>
+            </div>
+            <div id="registerTab" class="tab-content">
+                <form id="registerForm" onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label>Имя и фамилия</label>
+                        <input type="text" placeholder="Иван Петров" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="ivan@mail.ru" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Телефон</label>
+                        <input type="tel" placeholder="+7 (999) 123-45-67" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <input type="password" placeholder="минимум 6 символов" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Зарегистрироваться</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО БРОНИРОВАНИЯ -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close" onclick="closeModal('bookingModal')">&times;</span>
+            <h2>Бронирование снаряжения</h2>
+            <div class="booking-modal-content">
+                <div class="booking-summary">
+                    <h3 id="bookingItemName">Название товара</h3>
+                    <p id="bookingItemPrice">Цена: 0 ₽/сутки</p>
+                </div>
+                <form id="bookingForm" onsubmit="submitBooking(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Дата и время начала</label>
+                            <input type="datetime-local" id="startDate" required onchange="calculateTotal()">
+                        </div>
+                        <div class="form-group">
+                            <label>Дата и время окончания</label>
+                            <input type="datetime-local" id="endDate" required onchange="calculateTotal()">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Количество</label>
+                            <input type="number" id="quantity" value="1" min="1" max="5" onchange="calculateTotal()">
+                        </div>
+                        <div class="form-group">
+                            <label>Пункт выдачи</label>
+                            <select id="pickupPoint">
+                                <option>Комсомольская, 159/1</option>
+                                <option>Менделеева, 217</option>
+                                <option>ТЦ Аркада, -1 уровень</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Комментарий</label>
+                        <textarea placeholder="Ваши пожелания (размер, цвет и т.д.)"></textarea>
+                    </div>
+                    <div class="booking-total">
+                        <span>Итого к оплате:</span>
+                        <span class="total-price" id="totalPrice">0 ₽</span>
+                    </div>
+                    <div class="booking-deposit">
+                        <i class="fas fa-info-circle"></i> Залог: паспорт РФ или 10 000₽ (возвращается при сдаче)
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Подтвердить бронирование</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- УВЕДОМЛЕНИЕ -->
+    <div id="toast" class="toast"></div>
+
+    <!-- ПОДВАЛ -->
+    <footer class="footer" id="contacts">
+        <div class="container footer-container">
+            <div class="footer-col">
+                <div class="logo">❄️ Снежный<span>Прокат</span></div>
+                <p>Современный прокат<br>лыж и сноубордов с 2015 года</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Меню</h4>
+                <a href="#catalog">Снаряжение</a>
+                <a href="#prices">Цены и акции</a>
+                <a href="#locations">Пункты проката</a>
+                <a href="#">Контакты</a>
+            </div>
+            <div class="footer-col">
+                <h4>Клиентам</h4>
+                <a href="#">Договор оферты</a>
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Вопросы и ответы</a>
+                <a href="#">Подарочные сертификаты</a>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p><i class="fas fa-phone"></i> +7 (347) 123-45-67</p>
+                <p><i class="fas fa-envelope"></i> info@snowrent.ru</p>
+                <p><i class="fas fa-map-marker-alt"></i> г. Уфа, ул. Комсомольская, 159</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">© 2025 СнежныйПрокат. Курсовой проект — информационная система управления услугами проката и бронирования на лыжной базе.</div>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
